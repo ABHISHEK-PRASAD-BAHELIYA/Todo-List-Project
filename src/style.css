@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,20 +12,21 @@
 
 body {
     min-height: 100vh;
-    color: #2e2e2e;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #2e2e2e;
+    font-family: "Inter", sans-serif;
     background-color: #fff;
-    font-family: "inter", sans-serif;
 }
 
 .wrapper {
+    position: relative;
     height: 100vh;
     width: 100%;
-    position: relative;
     overflow: hidden;
     padding: 30px 0;
+    display: flex;
 }
 
 @media (min-width:768px) {
@@ -33,16 +38,35 @@ body {
     }
 }
 
+.wrapper .screen {
+    min-width: 100%;
+    flex: 1;
+    transition: all 0.3s;
+}
+
 .screen-backdrop {
     width: 135%;
     height: 25rem;
     position: absolute;
     top: 0;
     left: 50%;
-    z-index: -1;
     transform: translateX(-50%);
     border-radius: 0 0 50% 50%;
-    background-color: #f9ea85;
+    background-color: #39a6f0;
+    z-index: -1;
+    transition: all 0.3s;
+}
+
+.wrapper.show-category .home-screen {
+    transform: translateX(-100%);
+}
+
+.wrapper.show-category .category-screen {
+    transform: translateX(-100%);
+}
+
+.wrapper.show-category .screen-backdrop {
+    transform: translate(-50%, -60%)
 }
 
 .head-wrapper {
@@ -52,19 +76,19 @@ body {
 .menu-btn {
     width: 2rem;
     cursor: pointer;
-    color: #2e2e2e;
+    color: #ffffff;
 }
 
 .welcome {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    color: #ffffff;
 }
 
 .welcome h1 {
     font-size: 1.5rem;
 }
-
 
 .welcome p {
     font-weight: 500;
@@ -88,6 +112,7 @@ body {
 
 .welcome .img img {
     width: 5rem;
+    border-radius: 50%;
 }
 
 .categories-wrapper {
