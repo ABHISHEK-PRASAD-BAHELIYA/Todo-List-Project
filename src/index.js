@@ -1,4 +1,4 @@
-import "./style.css";
+import './style.css';
 
 let categories = [
   {
@@ -228,13 +228,13 @@ const renderCategories = () => {
       selectedCategory = category;
       updateTotals();
       categoryTitle.innerHTML = category.title;
-      categoryImg.src = `images/${category.img}`;
+      categoryImg.src = `./assets/${category.img}`;
       renderTasks();
     });
 
     div.innerHTML = `
                   <div class="left">
-                <img src="../dist/assets/${category.img}"
+                <img src="./assets/${category.img}"
                  alt="${category.title}"
                   />
                 <div class="content">
